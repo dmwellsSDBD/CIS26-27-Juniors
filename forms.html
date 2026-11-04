@@ -33,6 +33,61 @@
                <label for="last">Last Name:</label>
                <input type="text" name="last" id="last" placeholder="Enter your last name" required>
             </p>
+            <p>
+               <label for="email">Email:</label>
+               <input type="email" name="email" id="email" placeholder="name@domain.com" required>
+            </p>
+            <p>
+               <label for="phone">Phone:</label>
+               <input type="tel" name="phone" id="phone" placeholder="315-555-1234"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format: 315-555-1234">
+            </p>
+            <p>
+               <label for="tracker">Order tracking password (8-12 characters):</label>
+               <input type="password" name="tracker" id="tracker" size="12"
+                  minlength="8" maxlength="12" required>
+            </p>
+         </fieldset>
+
+         <fieldset>
+            <legend>Processor (pick one)</legend>
+            <div>
+               <input type="radio" name="cpu" value="i5" id="i5" checked>
+               <label for="i5">Intel Core i5</label>
+            </div>
+            <div>
+               <input type="radio" name="cpu" id="i7" value="i7">
+               <label for="i7">Intel Core i7</label>
+            </div>
+            <div>
+               <input type="radio" name="cpu" id="atom" value="atom">
+               <label for="atom">Intel Atom</label>
+            </div>
+            <div>
+               <input type="radio" name="cpu" id="ryzen5" value="ryzen5">
+               <label for="ryzen5">AMD Ryzen 5</label>
+            </div>
+            <div>
+               <input type="radio" name="cpu" id="ryzen7" value="ryzen7">
+               <label for="ryzen7">AMD Ryzen 7</label>
+            </div>
+         </fieldset>
+
+         <!-- checkboxes -->
+         <fieldset>
+            <legend>Extras (check all that apply)</legend>
+            <div>
+               <input type="checkbox" name="wifi" id="wifi" checked>
+               <label for="wifi">Wi-Fi Card</label>
+            </div>
+            <div>
+               <input type="checkbox" name="rgb" id="rgb">
+               <label for="rgb">RGB Lighting</label>
+            </div>
+            <div>
+               <input type="checkbox" name="extraSsd" id="extraSsd">
+               <label for="extraSsd">Second SSD</label>
+            </div>
          </fieldset>
 
       <!-- drop-down and list box -->
@@ -59,7 +114,50 @@
       </fieldset>
 
       <!-- ===== PART 3 (3.4) input pickers, number, range, combo box, url ===== -->
-      <input type="submit">
+      <fieldset>
+         <legend>Build Details</legend>
+         <p>
+            <label for="budget">Budget in dollars (500-3000):</label>
+            <input type="number" name="budget" id="budget" min="500" max="3000" step="50" value="1000">
+         </p>
+         <p>
+            <label for="rgbLevel">RGB brightness (0-100):</label>
+            <input type="range" name="rgbLevel" id="rgbLevel" min="0" max="100" step="10" value="50">
+         </p>
+         <p>
+            <label for="caseColor">Case color:</label>
+            <input type="color" name="caseColor" id="caseColor" value="#4268d3">
+         </p>
+         <p>
+            <label for="neededBy">Needed by:</label>
+            <input type="date" name="neededBy" id="neededBy" min="2026-11-10" max="2027-06-30">
+         </p>
+         <p>
+            <label for="game">Main game or app you'll run:</label>
+            <input list="games" name="game" id="game">
+            <datalist id="games">
+               <option value="Minecraft"></option>
+               <option value="Fortnite"></option>
+               <option value="Rocket League"></option>
+               <option value="Valorant"></option>
+               <option value="Visual Studio Code"></option>
+            </datalist>
+         </p>
+         <p>
+            <label for="portfolio">Your GitHub Pages site:</label>
+            <input type="url" name="portfolio" id="portfolio" placeholder="https://username.github.io">
+         </p>
+      </fieldset>
+
+      <p>
+         <label for="notes">Anything else the build team should know?</label><br>
+         <textarea name="notes" id="notes" row="5" cols="50" placeholder="Example: needs to be quiet, must fit under my desk..."></textarea>
+      </p>
+
+      <p>
+         <button type="submit">Submit Build Request</button>
+         <input type="button" value="Save for Later">
+      </p>
    </form>
 
 
