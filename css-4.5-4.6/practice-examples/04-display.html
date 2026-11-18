@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 4: The display Property</title>
+    <!--
+        zyBooks 4.5 - Display property
+          inline       : sits on the same line, only as wide as its content (like span, a)
+          block        : starts on a new line, fills the container width (like p, h1, div)
+          none         : hides the element completely (like the style element)
+          inline-block : sits on the same line, but its contents are formatted like a block
+          list-item    : displays like an li (with a bullet marker)
+
+        TRY IT:
+          a) Change .make-inline to display: block. What happens to the background?
+          b) Change .make-block to display: inline. The word rejoins its sentence.
+          c) Change .hide-me from none to inline. The hidden word appears.
+          d) Change the nav li rule from inline-block to block. The menu becomes vertical.
+          e) Give .fake-list display: list-item and see bullets appear on plain divs.
+    -->
+    <style>
+        body { font-family: Arial, sans-serif; }
+
+        .make-inline {
+            display: inline;               /* a p is block by default */
+            background-color: aliceblue;
+        }
+
+        .make-block {
+            display: block;                /* a span is inline by default */
+            background-color: lemonchiffon;
+        }
+
+        .hide-me {
+            display: none;                 /* the word disappears; no space is saved for it */
+        }
+
+        nav li {
+            display: inline-block;         /* list items sit side by side like menu buttons */
+            background-color: #2B2D5C;
+            color: white;
+        }
+
+        .fake-list {
+            display: list-item;            /* a div that acts like an li */
+            margin-left: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>The display Property</h1>
+
+    <p class="make-inline">Actions speak louder than words.</p>
+    <p>The <span class="make-block">pen</span> is mightier than the sword.</p>
+    <p>All good things come to those who <span class="hide-me">wait</span>.</p>
+
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Schedule</li>
+            <li>Games</li>
+            <li>Sign Up</li>
+        </ul>
+    </nav>
+
+    <div class="fake-list">I am a div pretending to be a list item.</div>
+    <div class="fake-list">Me too.</div>
+</body>
+</html>

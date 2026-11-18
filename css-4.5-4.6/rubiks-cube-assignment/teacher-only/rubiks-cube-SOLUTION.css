@@ -1,0 +1,296 @@
+/* ===================================================================
+   The Rubik's Cube - SOLUTION (teacher reference)
+   Name: Teacher Key
+
+   Reflection answers (sample):
+   1. A CSS variable is stored once in :root and reused with var(). Changing the
+      value in :root updates every rule that uses it, so the six cube colors only
+      have to be typed once.
+   2. float: right moves the image to the right side of its container and lets the
+      text wrap around it. clear: both makes the fun fact start below the image.
+   3. Relative units (rem, em, %) scale when a user raises the browser's default
+      font size, so the page stays readable for people who need larger text.
+   =================================================================== */
+
+/* ===================================================================
+   PROVIDED LAYOUT  (identical to the student template)
+   =================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px 20px 15px;
+    line-height: 1.5;
+}
+
+#page-header {
+    padding: 30px 20px 15px 20px;
+    border-radius: 0 0 12px 12px;
+}
+
+nav ul {
+    margin-top: 15px;
+}
+
+nav li {
+    margin: 4px 6px;
+}
+
+.card {
+    padding: 20px 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p,
+ul,
+ol {
+    margin-bottom: 12px;
+}
+
+ul,
+ol {
+    margin-left: 25px;
+}
+
+.cube-photo {
+    width: 200px;
+    margin: 0 0 10px 20px;
+}
+
+.swatch {
+    width: 90px;
+    padding: 30px 0 8px 0;
+    margin: 4px;
+    border: 2px solid #222222;
+    border-radius: 8px;
+}
+
+.move {
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.algorithm {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+footer {
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+}
+/* ===================== END PROVIDED LAYOUT ===================== */
+
+/* ===================================================================
+   PART 1: COMMON PROPERTIES (zyBooks 4.5)
+   =================================================================== */
+
+/* Step 3: CSS variables */
+:root {
+    --cube-white: #FFFFFF;
+    --cube-yellow: #FFD500;
+    --cube-red: #B71234;
+    --cube-orange: #FF5800;
+    --cube-blue: #0046AD;
+    --cube-green: #009B48;
+    --page-dark: #1A1A2E;
+    --page-light: #F5F5FA;
+}
+
+/* Step 4: Text colors in five formats */
+body {
+    color: var(--page-dark);
+}
+
+h1 {
+    color: white;                              /* color name */
+}
+
+.tagline {
+    color: #FFD500;                            /* hexadecimal */
+}
+
+h2 {
+    color: rgb(0, 70, 173);                    /* RGB */
+}
+
+.piece {
+    color: hsl(14, 100%, 40%);                 /* HSL */
+}
+
+.fun-fact {
+    color: rgba(26, 26, 46, 0.75);             /* RGBA */
+}
+
+/* Step 5: Backgrounds */
+body {
+    background-color: var(--page-light);
+    background-image: url('images/sticker-pattern.svg');
+}
+
+#page-header {
+    background: var(--page-dark) url('images/sticker-pattern.svg');
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+.algorithm {
+    background-color: var(--page-dark);
+    color: var(--cube-yellow);
+}
+
+.move {
+    background-color: var(--cube-blue);
+    color: white;
+}
+
+.swatch.white  { background-color: var(--cube-white); }
+.swatch.yellow { background-color: var(--cube-yellow); }
+.swatch.red    { background-color: var(--cube-red);    color: white; }
+.swatch.orange { background-color: var(--cube-orange); }
+.swatch.blue   { background-color: var(--cube-blue);   color: white; }
+.swatch.green  { background-color: var(--cube-green);  color: white; }
+
+footer {
+    background-color: var(--page-dark);
+    color: white;
+}
+
+footer a,
+nav a {
+    color: var(--cube-yellow);
+}
+
+nav a:hover {
+    color: var(--cube-orange);
+}
+
+/* Step 6: Float and clear */
+.cube-photo {
+    float: right;
+}
+
+.fun-fact {
+    clear: both;
+}
+
+/* Step 7: Display */
+nav li {
+    display: inline-block;
+}
+
+.swatch {
+    display: inline-block;
+}
+
+.move {
+    display: inline-block;
+}
+
+.draft-note {
+    display: none;
+}
+
+/* ===================================================================
+   PART 2: FONT AND TEXT PROPERTIES (zyBooks 4.6)
+   =================================================================== */
+
+/* Step 8: Font families */
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font: bold 2.8rem Georgia, "Times New Roman", serif;   /* font shorthand */
+}
+
+h2 {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.move,
+.algorithm {
+    font-family: "Courier New", Consolas, monospace;
+}
+
+/* Step 9: Font sizes */
+h2 {
+    font-size: 1.6rem;                         /* rem */
+}
+
+.tagline {
+    font-size: 115%;                           /* percent */
+}
+
+.big-number {
+    font-size: 2rem;
+}
+
+.swatch {
+    font-size: 0.85em;                         /* em */
+}
+
+footer {
+    font-size: small;                          /* size keyword */
+}
+
+/* Step 10: Weight, style, variant */
+.big-number,
+.piece,
+.move {
+    font-weight: bold;
+}
+
+.tagline,
+.fun-fact,
+.term {
+    font-style: italic;
+}
+
+.method-name,
+.original-name {
+    font-variant: small-caps;
+}
+
+/* Step 11: Text properties */
+#page-header,
+footer,
+.big-number,
+.algorithm,
+.swatch {
+    text-align: center;
+}
+
+#speedcubing p {
+    text-align: justify;
+}
+
+#history p {
+    text-indent: 2em;
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.myth {
+    text-decoration: line-through;
+}

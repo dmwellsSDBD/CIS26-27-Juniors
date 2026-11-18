@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 7: Font Sizes and Units</title>
+    <!--
+        zyBooks 4.6 - Font sizes
+          Size names     : xx-small  x-small  small  medium(default)  large  x-large  xx-large
+          Relative names : smaller, larger (compared to the PARENT's size)
+          Absolute units : cm  mm  in  px (1/96 in)  pt (1/72 in)  pc (12 pt)
+          Relative units : em   (x the element's font size)
+                           rem  (x the root <html> font size)
+                           vw / vh (1% of the browser width / height)
+                           %    (percent of the font size)
+        Most browsers default to 16px. Relative sizes grow when a user raises their
+        browser's default size, so they are better for accessibility.
+
+        TRY IT:
+          a) With html at 16px, calculate each size below BEFORE you look. Then check.
+          b) Change html { font-size } to 20px. Which lines grow? Which stay the same?
+          c) Resize the browser window. Which line changes size? Why?
+          d) Set .parent to 30px. Why does .em-child change but .rem-child does not?
+    -->
+    <style>
+        html { font-size: 16px; }
+
+        .keyword  { font-size: x-large; }
+        .smaller  { font-size: smaller; }
+        .pixels   { font-size: 16px; }      /* absolute: never changes                 */
+        .rem      { font-size: 1.5rem; }    /* 1.5 x 16px = 24px                       */
+        .percent  { font-size: 120%; }      /* 1.2 x 16px = 19.2px                     */
+        .vw       { font-size: 3vw; }       /* 3% of the window width                  */
+
+        .parent    { font-size: 20px; }
+        .em-child  { font-size: 2em; }      /* 2 x PARENT's 20px = 40px                */
+        .rem-child { font-size: 2rem; }     /* 2 x ROOT's 16px = 32px                  */
+    </style>
+</head>
+<body>
+    <h1>Font Sizes and Units</h1>
+    <p class="keyword">x-large: You must be the change you wish to see in the world.</p>
+    <p class="smaller">smaller: You must be the change you wish to see in the world.</p>
+    <p class="pixels">16px: You must be the change you wish to see in the world.</p>
+    <p class="rem">1.5rem: You must be the change you wish to see in the world.</p>
+    <p class="percent">120%: You must be the change you wish to see in the world.</p>
+    <p class="vw">3vw: Resize the window and watch me.</p>
+
+    <div class="parent">
+        Parent text at 20px
+        <p class="em-child">2em child</p>
+        <p class="rem-child">2rem child</p>
+    </div>
+</body>
+</html>

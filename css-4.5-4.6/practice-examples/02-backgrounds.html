@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 2: Background Properties</title>
+    <!--
+        zyBooks 4.5 - Background properties
+          background-color : a color (default is transparent)
+          background-image : url('file') or none (default is none)
+          background       : shorthand that sets several background properties at once
+        The browser draws the background FIRST, then the content on top.
+        If you set BOTH a color and an image, the image is drawn on top of the color.
+
+        TRY IT:
+          a) Change the body background-color to lightgray. Notice .clear-box shows the body
+             color through it, because its background is transparent.
+          b) In .with-image, delete the background-image line. What is left?
+          c) Rewrite .shorthand using two separate properties instead of the shorthand.
+          d) Change .glass to rgba(255, 255, 255, 0.9), then 0.1. What do you see behind it?
+    -->
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            background-color: #FFF4D6;
+        }
+
+        .solid {
+            background-color: LightSkyBlue;
+        }
+
+        .with-image {
+            background-color: #2B2D5C;                  /* drawn first          */
+            background-image: url('images/dots.svg');   /* drawn ON TOP of color */
+            color: white;
+        }
+
+        .shorthand {
+            background: darkgreen url('images/dots.svg');   /* color + image in one line */
+            color: white;
+        }
+
+        .clear-box {
+            /* no background set = transparent. The parent (body) shows through. */
+            border: 2px dashed gray;
+        }
+
+        .glass {
+            background-color: rgba(255, 255, 255, 0.5);  /* half-transparent white */
+        }
+    </style>
+</head>
+<body>
+    <h1>Background Practice</h1>
+    <p class="solid">background-color: LightSkyBlue</p>
+    <p class="with-image">background-color plus a background-image drawn on top</p>
+    <p class="shorthand">background shorthand: color and image in one declaration</p>
+    <p class="clear-box">No background: the body's color shows through (transparent)</p>
+    <div class="with-image">
+        <p class="glass">A half-transparent paragraph sitting on a dark, dotted div</p>
+    </div>
+</body>
+</html>

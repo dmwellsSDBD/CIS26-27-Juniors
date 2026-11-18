@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 3: Float and Clear</title>
+    <!--
+        zyBooks 4.5 - Float and clear
+          float: none | left | right
+             Moves an element to the left or right side of its parent container
+             so the text after it wraps around it (like a magazine article).
+          clear: none | left | right | both
+             Moves an element BELOW any earlier floated elements.
+
+        TRY IT:
+          a) Change .pic-right to float: left. Where does the text go?
+          b) Change it to float: none. What happens to the wrapping?
+          c) Delete the clear: both line in .next-section. Watch the heading jump up beside the image.
+          d) Challenge: float BOTH images left. What does clear: left do on .next-section?
+    -->
+    <style>
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        .pic-right {
+            float: right;
+        }
+
+        .pic-left {
+            float: left;
+        }
+
+        .next-section {
+            clear: both;            /* starts below ALL floated elements */
+            background-color: #E8F0FE;
+        }
+    </style>
+</head>
+<body>
+    <h1>Float and Clear</h1>
+
+    <img class="pic-right" src="images/cube-small.svg" alt="Illustration of a 3 by 3 puzzle cube">
+    <p>
+        This paragraph wraps around the cube because the image floats to the right side of
+        its parent container. Floating lets text flow around images the way a newspaper or
+        magazine article does. Keep typing more text here so you can see several lines wrap
+        around the picture. The text keeps flowing until it passes the bottom of the image.
+    </p>
+
+    <img class="pic-left" src="images/controller.svg" alt="Illustration of a game controller">
+    <p>
+        This image floats left, so this text flows along its right side. Floats are useful for
+        pull-quotes, photos, and sidebars.
+    </p>
+
+    <h2 class="next-section">This heading uses clear: both</h2>
+    <p>Because of clear: both, this section starts below the floated images.</p>
+</body>
+</html>

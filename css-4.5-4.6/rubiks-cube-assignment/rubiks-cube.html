@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rubik's Cube</title>
+
+    <!-- STEP 1: Link your external stylesheet (rubiks-cube.css) on the line below -->
+
+</head>
+<body>
+
+    <!-- The header has an ID. Your background shorthand goes on #page-header in Step 5. -->
+    <header id="page-header">
+        <h1>The Rubik's Cube</h1>
+        <p class="tagline">43 quintillion ways to scramble it. One way to solve it.</p>
+
+        <!-- Navigation: these list items become a horizontal menu in Step 7 -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#history">History</a></li>
+                <li><a href="#anatomy">Anatomy</a></li>
+                <li><a href="#math">The Math</a></li>
+                <li><a href="#notation">Notation</a></li>
+                <li><a href="#solve">Solving</a></li>
+                <li><a href="#speedcubing">Speedcubing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- DRAFT NOTE: this paragraph is hidden with display: none in Step 7 -->
+        <p class="draft-note">DRAFT NOTE: Double-check every fact before this page goes live.</p>
+
+        <!-- ============ HISTORY ============ -->
+        <section id="history" class="card">
+            <h2>A Puzzle Invented by Accident</h2>
+
+            <!-- This image floats to the right in Step 6 -->
+            <img class="cube-photo" src="images/cube.svg" alt="Illustration of a solved 3 by 3 puzzle cube showing white, green, and red faces">
+
+            <p>
+                In 1974, Ern&#337; Rubik, a young teacher of architecture and design in Budapest,
+                Hungary, wanted a hands-on way to show his students how objects move in three
+                dimensions. He built a block of 27 small cubes that could twist without falling
+                apart. When he scrambled the colors, he realized he had created a puzzle, and it
+                took him about a month to solve it for the first time.
+            </p>
+            <p>
+                The puzzle went on sale in Hungary in 1977 under the name <span class="original-name">Magic Cube</span>.
+                In 1980, the Ideal Toy Corporation renamed it the Rubik's Cube and sold it around the
+                world. Within a few years it became one of the best-selling toys in history, and
+                hundreds of millions have been sold since.
+            </p>
+
+            <!-- This paragraph uses clear: both in Step 6 so it starts below the image -->
+            <p class="fun-fact">
+                Fun fact: Rubik did not set out to make a toy. He was trying to solve a design
+                problem: how to let pieces turn independently without the whole structure
+                falling apart.
+            </p>
+        </section>
+
+        <!-- ============ ANATOMY ============ -->
+        <section id="anatomy" class="card">
+            <h2>Anatomy of the Cube</h2>
+            <p>
+                A standard 3&times;3 cube looks like 27 small cubes, but it really has 26 visible
+                pieces built around a hidden core. Every piece belongs to one of three types:
+            </p>
+            <ul>
+                <li><span class="piece">Centers (6):</span> one sticker each. Centers never move
+                    relative to each other, so each center decides the color of its face.</li>
+                <li><span class="piece">Edges (12):</span> two stickers each, sitting between two centers.</li>
+                <li><span class="piece">Corners (8):</span> three stickers each, sitting where three faces meet.</li>
+            </ul>
+            <p>
+                The six face colors follow a standard scheme. Opposite faces are always paired:
+                white is opposite yellow, red is opposite orange, and blue is opposite green.
+            </p>
+
+            <!-- Each swatch becomes a colored inline-block square in Steps 5 and 7 -->
+            <div class="swatches">
+                <span class="swatch white">White</span>
+                <span class="swatch yellow">Yellow</span>
+                <span class="swatch red">Red</span>
+                <span class="swatch orange">Orange</span>
+                <span class="swatch blue">Blue</span>
+                <span class="swatch green">Green</span>
+            </div>
+        </section>
+
+        <!-- ============ MATH ============ -->
+        <section id="math" class="card">
+            <h2>The Math: 43 Quintillion Combinations</h2>
+            <p>The number of different ways a 3&times;3 cube can be scrambled is:</p>
+            <p class="big-number">43,252,003,274,489,856,000</p>
+            <p>
+                That is more than 43 quintillion. If you could look at one new scramble every
+                second, you would need over a trillion years to see them all.
+            </p>
+            <p>
+                <span class="myth">Myth: A really bad scramble takes hundreds of moves to solve.</span>
+                In 2010, a team of researchers used thousands of hours of donated computer time
+                to prove that every scramble can be solved in 20 moves or fewer. Puzzle fans call
+                this number <span class="term">God's Number</span>. The proof is a great example
+                of computer science solving a problem that is too big to work out by hand.
+            </p>
+        </section>
+
+        <!-- ============ NOTATION ============ -->
+        <section id="notation" class="card">
+            <h2>Cube Notation</h2>
+            <p>
+                Cubers write moves with letters, one letter for each face. A letter by itself means
+                turn that face a quarter turn clockwise, as if you were looking straight at that face.
+            </p>
+            <p class="move-list">
+                <span class="move">F</span> Front
+                <span class="move">B</span> Back
+                <span class="move">U</span> Up
+                <span class="move">D</span> Down
+                <span class="move">L</span> Left
+                <span class="move">R</span> Right
+            </p>
+            <p>
+                An apostrophe, called <span class="term">prime</span>, means turn counterclockwise:
+                <span class="move">R'</span>. A 2 means turn the face twice (180 degrees):
+                <span class="move">U2</span>.
+            </p>
+            <p>A list of moves is called an algorithm. Many beginner methods repeat this one:</p>
+            <p class="algorithm">R U R' U'</p>
+        </section>
+
+        <!-- ============ SOLVING ============ -->
+        <section id="solve" class="card">
+            <h2>Solving It: The Beginner's Method</h2>
+            <p>
+                Most people learn to solve the cube one layer at a time, starting with the white
+                face. Each stage uses a few short algorithms.
+            </p>
+            <ol>
+                <li>Make a white cross on the top face, with each edge matching its side center.</li>
+                <li>Insert the four white corners to finish the first layer.</li>
+                <li>Place the four edges of the middle layer.</li>
+                <li>Flip the top edges to make a yellow cross.</li>
+                <li>Move the yellow edges so they match their side centers.</li>
+                <li>Move the yellow corners into their correct spots.</li>
+                <li>Twist the yellow corners until the whole cube is solved.</li>
+            </ol>
+            <p>
+                Faster solvers use a method called <span class="method-name">CFOP</span>, which stands for
+                <span class="method-name">Cross, First Two Layers, Orient Last Layer, Permute Last Layer</span>.
+                CFOP uses many more algorithms, and top solvers memorize well over 70 of them.
+            </p>
+        </section>
+
+        <!-- ============ SPEEDCUBING ============ -->
+        <section id="speedcubing" class="card">
+            <h2>Speedcubing</h2>
+            <p>
+                Speedcubing is the sport of solving puzzles as fast as possible. Official competitions
+                are run under the rules of the World Cube Association (WCA), which was founded in 2004.
+                Before each solve, competitors get 15 seconds to inspect the scrambled cube. Most
+                events are scored as an average of five solves, with the fastest and slowest
+                times dropped.
+            </p>
+            <p>
+                At the first World Championship in Budapest in 1982, the winning time was about
+                23 seconds. Today the 3&times;3 world record single is under 4 seconds. Competitions
+                also include one-handed solving, blindfolded solving, and puzzles of many shapes and sizes:
+            </p>
+            <ul>
+                <li><span class="piece">2&times;2</span> Pocket Cube</li>
+                <li><span class="piece">4&times;4</span> Rubik's Revenge</li>
+                <li><span class="piece">5&times;5</span> Professor's Cube</li>
+                <li><span class="piece">Megaminx</span> a 12-sided puzzle</li>
+                <li><span class="piece">Pyraminx</span> a triangular pyramid</li>
+            </ul>
+        </section>
+
+        <!-- ============ RESOURCES ============ -->
+        <section id="resources" class="card">
+            <h2>Learn More</h2>
+            <ul>
+                <li><a href="https://www.worldcubeassociation.org/" target="_blank">World Cube Association</a> (official records and competitions)</li>
+                <li><a href="https://www.rubiks.com/" target="_blank">Rubik's</a> (the official company site, with a solving guide)</li>
+                <li><a href="https://en.wikipedia.org/wiki/Rubik%27s_Cube" target="_blank">Rubik's Cube on Wikipedia</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Styled by YOUR NAME &middot; Computer &amp; Information Science</p>
+        <p><a href="#page-header">Back to top</a> &middot; <a href="index.html">Home</a></p>
+    </footer>
+
+</body>
+</html>

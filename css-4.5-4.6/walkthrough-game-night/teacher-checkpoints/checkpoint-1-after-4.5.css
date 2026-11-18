@@ -1,0 +1,86 @@
+/* ===================================================================
+   CIS Game Night - FINISHED stylesheet (teacher reference)
+   PART 1 = zyBooks 4.5 Common properties   (Steps 1-6)
+   PART 2 = zyBooks 4.6 Font and text       (Steps 7-10)
+   =================================================================== */
+
+/* ---------- PART 1: COMMON PROPERTIES (4.5) ---------- */
+
+/* Step 1: CSS variables. Declared in :root so every rule can use them. */
+:root {
+    --night: #1B1D3A;
+    --neon-pink: #FF5C8A;
+    --neon-green: #3DDC97;
+    --gold: #FFD166;
+    --paper: #F4F3FA;
+}
+
+/* Step 2: Text and background colors, using four color formats */
+body {
+    color: var(--night);
+    background-color: var(--paper);
+}
+
+h1 {
+    color: #FFD166;                        /* hexadecimal */
+}
+
+.tagline {
+    color: rgb(255, 255, 255);             /* RGB */
+}
+
+h2 {
+    color: hsl(340, 100%, 45%);            /* HSL: a deep pink */
+}
+
+.game {
+    background-color: rgba(61, 220, 151, 0.2);   /* RGBA: see-through green */
+}
+
+/* Step 3: Background shorthand: color + image in one declaration */
+header {
+    background: var(--night) url('images/dots.svg');
+}
+
+footer {
+    background-color: var(--night);
+    color: white;
+}
+
+footer a {
+    color: var(--gold);
+}
+
+/* Step 4: display: inline-block turns the list into a horizontal menu */
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    color: var(--neon-green);
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* Step 5: Float the image so text wraps; clear so the footer starts below it */
+.float-right {
+    float: right;
+}
+
+footer {
+    clear: both;
+}
+
+/* Step 6: More display values */
+.badge {
+    display: inline-block;
+    background-color: var(--neon-pink);
+    color: white;
+}
+
+.staff-note {
+    display: none;                         /* hidden from visitors */
+}
+

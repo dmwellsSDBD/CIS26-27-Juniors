@@ -1,0 +1,128 @@
+/* ===================================================================
+   The Rubik's Cube - Stylesheet
+   Name:
+
+   REFLECTION QUESTIONS (Step 12): answer here in complete sentences.
+   1.
+   2.
+   3.
+   =================================================================== */
+
+/* ===================================================================
+   PROVIDED LAYOUT: DO NOT CHANGE THIS SECTION
+   These rules use the box model (padding, margin, width, border),
+   which we cover next in zyBooks 4.7. They are here so your page has
+   good spacing while you practice 4.5 and 4.6.
+   =================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px 20px 15px;
+    line-height: 1.5;
+}
+
+#page-header {
+    padding: 30px 20px 15px 20px;
+    border-radius: 0 0 12px 12px;
+}
+
+nav ul {
+    margin-top: 15px;
+}
+
+nav li {
+    margin: 4px 6px;
+}
+
+.card {
+    padding: 20px 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+p,
+ul,
+ol {
+    margin-bottom: 12px;
+}
+
+ul,
+ol {
+    margin-left: 25px;
+}
+
+.cube-photo {
+    width: 200px;
+    margin: 0 0 10px 20px;
+}
+
+.swatch {
+    width: 90px;
+    padding: 30px 0 8px 0;
+    margin: 4px;
+    border: 2px solid #222222;
+    border-radius: 8px;
+}
+
+.move {
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.algorithm {
+    padding: 10px;
+    border-radius: 8px;
+}
+
+footer {
+    padding: 20px;
+    border-radius: 12px 12px 0 0;
+}
+/* ===================== END PROVIDED LAYOUT ===================== */
+
+/* ===================================================================
+   PART 1: COMMON PROPERTIES (zyBooks 4.5)
+   Write YOUR rules below each step comment. See README.md.
+   =================================================================== */
+
+/* Step 3: CSS variables in :root (six cube colors + two page colors) */
+
+
+/* Step 4: Text colors in five formats (name, hex, RGB, HSL, RGBA or HSLA) */
+
+
+/* Step 5: Backgrounds (body image, header shorthand, cards, swatches, footer) */
+
+
+/* Step 6: Float the cube image; clear the fun fact */
+
+
+/* Step 7: Display (nav li, .swatch, .move, .draft-note) */
+
+
+/* ===================================================================
+   PART 2: FONT AND TEXT PROPERTIES (zyBooks 4.6)
+   =================================================================== */
+
+/* Step 8: Font families and the font shorthand */
+
+
+/* Step 9: Font sizes (rem, em, %, and a size keyword) */
+
+
+/* Step 10: font-weight, font-style, font-variant */
+
+
+/* Step 11: text-align, text-indent, text-transform, text-decoration */
+

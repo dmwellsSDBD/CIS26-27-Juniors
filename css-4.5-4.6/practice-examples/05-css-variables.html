@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 5: CSS Variables</title>
+    <!--
+        zyBooks 4.5 - CSS variables
+          A CSS variable is a custom property whose name starts with two dashes:  --main-color: red;
+          Read it with the var() function:                                        color: var(--main-color);
+          Declare variables in :root (the <html> element) to give them GLOBAL scope.
+
+        TRY IT:
+          a) Change --brand-color to purple. Count how many things change. How many rules did you edit?
+          b) Change --light-bg to #FFE4E1 (misty rose).
+          c) Add a new variable --warning-color: orangered; and use it for the .alert text color.
+          d) What happens if you misspell a variable name in var()? Try var(--brand-colr).
+    -->
+    <style>
+        :root {
+            --brand-color: #1FB5A8;
+            --dark-text: #1E1B2E;
+            --light-bg: #F2F1F7;
+        }
+
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        h1 { color: var(--brand-color); }
+
+        h2 { color: var(--brand-color); }
+
+        .badge {
+            background-color: var(--brand-color);
+            color: white;
+        }
+
+        .alert {
+            color: black;     /* TRY IT (c): replace black with your new variable */
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Variables</h1>
+    <h2>Change one value, update everywhere</h2>
+    <p>This paragraph uses <span class="badge">var(--dark-text)</span> for its color.</p>
+    <p class="alert">This sentence should become the warning color in Try It (c).</p>
+    <h2>Why use variables?</h2>
+    <p>If 200 rules use var(--brand-color), changing the color takes ONE edit in :root.</p>
+</body>
+</html>

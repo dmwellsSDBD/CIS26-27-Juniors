@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 1: Color Values</title>
+    <!--
+        zyBooks 4.5 - The color property
+        The color property changes TEXT color. A color value can be written 4 ways:
+          1. Color name       ->  forestgreen
+          2. RGB              ->  rgb(red, green, blue)     each 0-255
+          3. Hexadecimal      ->  #RRGGBB                   each pair 00-FF
+          4. HSL              ->  hsl(hue, saturation, lightness)  hue 0-360, others 0%-100%
+        Add an alpha value (0 = invisible, 1 = solid) with rgba() or hsla().
+
+        TRY IT:
+          a) Change .by-name to your favorite of the 140 color names (try "tomato" or "rebeccapurple").
+          b) In .by-rgb, make the text pure blue. Which number do you change?
+          c) In .by-hex, write gold as hex: #FFD700.
+          d) In .by-hsl, change only the hue (first number) to 240. What color appears?
+          e) In .faded, change the alpha from 0.5 to 0.2, then to 1. What happens?
+    -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .by-name { color: forestgreen; }
+
+        .by-rgb  { color: rgb(255, 0, 0); }          /* full red, no green, no blue */
+
+        .by-hex  { color: #0000FF; }                 /* 00 red, 00 green, FF blue */
+
+        .by-hsl  { color: hsl(120, 100%, 25%); }     /* hue 120 = green, 25% lightness = dark */
+
+        .faded   { color: rgba(0, 0, 0, 0.5); }      /* black at 50% opacity = gray */
+
+        .see-through { color: hsla(0, 100%, 50%, 0.3); }  /* red at 30% opacity */
+    </style>
+</head>
+<body>
+    <h1>Four Ways to Write a Color</h1>
+    <p class="by-name">This text uses a color NAME.</p>
+    <p class="by-rgb">This text uses an RGB value.</p>
+    <p class="by-hex">This text uses a HEXADECIMAL value.</p>
+    <p class="by-hsl">This text uses an HSL value.</p>
+    <p class="faded">This text uses RGBA (black at half opacity).</p>
+    <p class="see-through">This text uses HSLA (red at 30% opacity).</p>
+
+    <h2>Quick reference</h2>
+    <p>Black: black / rgb(0, 0, 0) / #000000 / hsl(0, 0%, 0%)</p>
+    <p>White: white / rgb(255, 255, 255) / #FFFFFF / hsl(0, 0%, 100%)</p>
+    <p>Yellow: yellow / rgb(255, 255, 0) / #FFFF00 / hsl(60, 100%, 50%)</p>
+</body>
+</html>

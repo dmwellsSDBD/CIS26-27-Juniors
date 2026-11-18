@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 8: Text Properties</title>
+    <!--
+        zyBooks 4.6 - Text properties
+          text-align      : left | right | center | justify
+          text-decoration : underline | overline | line-through | none
+          text-transform  : uppercase | lowercase | capitalize
+          text-indent     : indents the FIRST line (try 30px or 2em; negative values pull left)
+
+        Accessibility note: text-decoration: none is often used to remove link underlines.
+        Underlines help people spot links, and color alone does not work for everyone
+        (some users are color blind). If you remove the underline, give links another clue.
+
+        TRY IT:
+          a) Change .quote from capitalize to uppercase, then lowercase.
+          b) Set .story text-indent to -20px. What happens?
+          c) Change .price-old to overline. Then try underline.
+          d) Remove the text-decoration: none from nav a and compare.
+    -->
+    <style>
+        body { font-family: Verdana, Arial, sans-serif; }
+
+        .left    { text-align: left; }
+        .right   { text-align: right; }
+        .center  { text-align: center; }
+        .justify { text-align: justify; width: 320px; }
+
+        .quote     { text-transform: capitalize; }
+        .story     { text-indent: 2em; }
+        .price-old { text-decoration: line-through; }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;     /* bring the underline back on hover */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#align">Alignment</a> |
+        <a href="#transform">Transform</a> |
+        <a href="#indent">Indent</a>
+    </nav>
+
+    <h1 class="center">Text Properties</h1>
+
+    <h2 id="align">text-align</h2>
+    <p class="left">Left aligned (the default).</p>
+    <p class="right">Due: July 4, 1776</p>
+    <p class="center">Gears and Pulleys: The untold story of power transference.</p>
+    <p class="justify">Justified text stretches the spaces between words so both edges line up.
+        The quick brown fox jumped over a lazy dog. Pack my box with five dozen liquor jugs.</p>
+
+    <h2 id="transform">text-transform and text-decoration</h2>
+    <p class="quote">knowledge comes, but wisdom lingers. - lord tennyson</p>
+    <p>Sale! <span class="price-old">$29.99</span> now $19.99</p>
+
+    <h2 id="indent">text-indent</h2>
+    <p class="story">This paragraph's first line is indented 2em, like a paragraph in a printed book.
+        Only the first line moves; every line after it starts at the normal left edge.</p>
+</body>
+</html>

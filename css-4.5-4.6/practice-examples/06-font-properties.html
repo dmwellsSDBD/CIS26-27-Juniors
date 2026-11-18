@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice 6: Font Properties</title>
+    <!--
+        zyBooks 4.6 - Font properties
+          font-family  : list of fonts; the browser uses the FIRST one it has.
+                         Names with spaces need quotes: "Times New Roman"
+                         Always END the list with a generic family:
+                         serif, sans-serif, cursive, fantasy, monospace
+          font-size    : 120%, small, 12px, 1.5rem ...
+          font-weight  : normal or bold
+          font-style   : normal, italic, or oblique
+          font-variant : normal or small-caps
+          font         : shorthand. Order:  [style variant weight]  size  family
+                         size and family are REQUIRED and must come LAST, in that order.
+
+        TRY IT:
+          a) Put a font you do not have first, like font-family: "Zebra Sans", Georgia, serif;
+             Which font does the browser use?
+          b) Change .fancy to font-variant: small-caps.
+          c) Rewrite .shorthand as five separate font properties.
+          d) Break the shorthand on purpose: font: Georgia 20px; (family before size). Does it work?
+    -->
+    <style>
+        .serif      { font-family: Georgia, "Times New Roman", serif; }
+        .sans       { font-family: Arial, Helvetica, sans-serif; }
+        .cursive    { font-family: "Brush Script MT", "Comic Sans MS", cursive; }
+        .fantasy    { font-family: Impact, fantasy; }
+        .mono       { font-family: "Courier New", Consolas, monospace; }
+
+        .bold       { font-weight: bold; }
+        .italic     { font-style: italic; }
+        .fancy      { font-variant: normal; }      /* TRY IT (b) */
+
+        .shorthand  { font: italic small-caps bold 1.4rem Georgia, serif; }
+    </style>
+</head>
+<body>
+    <h1>Font Properties</h1>
+    <h2>Generic families</h2>
+    <p class="serif">Serif: small strokes at the ends of letters (Georgia, Times New Roman)</p>
+    <p class="sans">Sans-serif: plain stroke ends (Arial, Helvetica, Verdana)</p>
+    <p class="cursive">Cursive: handwriting style (Brush Script MT, Comic Sans MS)</p>
+    <p class="fantasy">Fantasy: decorative (Impact)</p>
+    <p class="mono">Monospace: every character is the same width (Courier New)</p>
+
+    <h2>Weight, style, variant</h2>
+    <p class="bold">font-weight: bold</p>
+    <p class="italic">font-style: italic</p>
+    <p class="fancy">font-variant: small-caps (after you finish Try It b)</p>
+
+    <h2>The font shorthand</h2>
+    <p class="shorthand">font: italic small-caps bold 1.4rem Georgia, serif;</p>
+</body>
+</html>
