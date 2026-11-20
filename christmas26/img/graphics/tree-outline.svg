@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="christmas">
+  <circle cx="11.5" cy="8" r=".5" fill="none" stroke="#303c42" stroke-linecap="round" stroke-linejoin="round"></circle>
+  <circle cx="14" cy="13" r=".5" fill="none" stroke="#303c42" stroke-linecap="round" stroke-linejoin="round"></circle>
+  <circle cx="10" cy="17" r=".5" fill="none" stroke="#303c42" stroke-linecap="round" stroke-linejoin="round"></circle>
+  <circle cx="15" cy="18" r=".5" fill="none" stroke="#303c42" stroke-linecap="round" stroke-linejoin="round"></circle>
+  <path fill="none" stroke="#303c42" stroke-linecap="round" stroke-linejoin="round" d="M10.44 20.5a4.581 4.581 0 0 1-1.44 3h6a4.581 4.581 0 0 1-1.44-3h-3.12zM10.44 5.21 6.5 9.5h3L5 15h3l-4.5 5.5h17L16 15h3l-4.5-5.5h3l-3.94-4.29"></path>
+  <path fill="none" stroke="#303c42" stroke-linecap="round" stroke-linejoin="round" d="m12 .5.8 1.63 1.91.4-1.41 1.12.3 1.79-1.6-.85-1.6.85.3-1.79-1.41-1.12 1.91-.4z"></path>
+</svg>

@@ -1,0 +1,535 @@
+/* ==========================================================
+   Christmas 2026 Wishlist - styles.css (TEACHER SAMPLE)
+   Name: David Wells
+   Plain CSS rebuild of the 2024 Tailwind site.
+   Sections are labeled with the phase that teaches them.
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   PHASE 2: COLOR SCHEME
+   All five colors were picked from img/header.jpg:
+     --color-dark       #293938  pine needles in the shadows
+     --color-accent     #800000  the red glitter ornament
+     --color-accent-2   #4a817b  blue-green of the lit branches
+     --color-light      #ffffff  text on dark backgrounds
+     --color-highlight  #e9b44c  gold of the blurred lights
+   Contrast checked: white on #800000 = 10.6:1,
+   white on #293938 = 12.4:1, #293938 on white = 12.4:1
+   ---------------------------------------------------------- */
+:root {
+    --color-dark: #293938;
+    --color-accent: #800000;
+    --color-accent-2: #4a817b;
+    --color-light: #ffffff;
+    --color-highlight: #e9b44c;
+
+    /* Extra shade used only in gradients */
+    --color-accent-deep: #560000;
+
+    /* Fonts */
+    --font-festive: "Mountains of Christmas", "Caveat Brush", cursive;
+    --font-heading: "Caveat Brush", cursive;
+    --font-body: "Delius", "Trebuchet MS", sans-serif;
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 2: BOX MODEL RESET
+   border-box means width includes padding and border.
+   ---------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 1: BASE TEXT
+   ---------------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;   /* so #wishlist is not hidden under the sticky nav */
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-dark);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-highlight);
+    outline-offset: 3px;
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 3: FLEXBOX - NAVIGATION
+   Site name on the left, links on the right.
+   ---------------------------------------------------------- */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-deep));
+}
+
+.site-name {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-light);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: var(--color-light);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: var(--color-light);
+    color: var(--color-accent-2);
+}
+
+/* The Santa Tracker link is a white pill, like the 2024 site */
+.nav-links .santa-link {
+    background-color: var(--color-light);
+    color: var(--color-accent-2);
+    font-weight: bold;
+    border-radius: 999px;
+    padding: 0.5rem 1.25rem;
+}
+
+.nav-links .santa-link:hover {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+/* Hidden unless script.js runs on a phone (extra credit) */
+.menu-toggle {
+    display: none;
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 2: HERO HEADER
+   The same photo anchors the top of every page.
+   The gradient layer darkens the photo so white text reads.
+   ---------------------------------------------------------- */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: var(--color-light);
+    background-color: var(--color-dark);
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)),
+        url("../img/header.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-family: var(--font-festive);
+    font-weight: 700;
+    font-size: clamp(3.25rem, 11vw, 8rem);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+}
+
+.tagline {
+    font-size: clamp(1.25rem, 3.5vw, 2.25rem);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-highlight);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Item pages use a shorter version of the same hero */
+.hero-small {
+    min-height: 38vh;
+}
+
+.hero-small h1 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: clamp(2.75rem, 8vw, 5.5rem);
+    text-transform: none;
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 3: CSS GRID - CARD LAYOUT
+   auto-fit + minmax: 3 columns on a laptop, 2 on a tablet,
+   1 on a phone, with no media query.
+   ---------------------------------------------------------- */
+#wishlist {
+    padding: 4rem 1.5rem 5rem;
+    background: linear-gradient(to top, var(--color-accent-2), var(--color-dark));
+}
+
+#wishlist h2 {
+    text-align: center;
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    color: var(--color-light);
+    margin-bottom: 2.5rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 4: CSS CARDS
+   ---------------------------------------------------------- */
+.card {
+    display: flex;
+    flex-direction: column;     /* card = a column flexbox */
+    overflow: hidden;           /* photo corners follow the card */
+    background-color: var(--color-light);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;          /* every photo fills the same box */
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-top: 6px solid var(--color-accent);
+}
+
+.card h3 {
+    font-size: 2rem;
+    color: var(--color-accent-2);
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: var(--color-accent);
+}
+
+.description {
+    color: var(--color-dark);
+}
+
+/* margin-top: auto pushes every button to the bottom of its card */
+.button {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    background-color: var(--color-accent-2);
+    color: var(--color-light);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.card .button {
+    margin-top: auto;
+}
+
+.card-body .description {
+    margin-bottom: 1rem;
+}
+
+.button:hover {
+    background-color: var(--color-dark);
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 3: FLEXBOX - GRAPHICS STRIP
+   ---------------------------------------------------------- */
+.graphics-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-deep));
+}
+
+.graphics-strip img {
+    width: 110px;
+    height: 110px;
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 5: ITEM TEMPLATE PAGE
+   Two-column grid: photo on the left, details on the right.
+   ---------------------------------------------------------- */
+.item-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background-color: var(--color-light);
+    border-radius: 14px;
+    border-top: 8px solid var(--color-accent);
+}
+
+.item-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.item-info h2 {
+    font-size: clamp(2.25rem, 5vw, 3rem);
+    color: var(--color-accent-2);
+}
+
+.item-info .price {
+    font-size: 1.6rem;
+}
+
+.item-info h3 {
+    font-size: 1.75rem;
+    color: var(--color-accent);
+}
+
+.features {
+    padding-left: 1.25rem;
+}
+
+.features li::marker {
+    color: var(--color-accent);
+}
+
+.item-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 0.75rem;
+}
+
+.item-actions .button {
+    margin-top: 0;
+}
+
+.back-link {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.back-link:hover {
+    color: var(--color-accent-2);
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 3: FLEXBOX + GRID - FOOTER
+   ---------------------------------------------------------- */
+.site-footer {
+    background-color: var(--color-light);
+}
+
+.footer-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+.footer-columns > img {
+    width: 120px;
+}
+
+.footer-links {
+    text-align: center;
+}
+
+.footer-links h2 {
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: var(--color-accent-2);
+    text-decoration: none;
+    line-height: 2;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    padding: 1.25rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-light);
+    background-color: var(--color-dark);
+}
+
+.copyright a {
+    color: var(--color-highlight);
+}
+
+
+/* ----------------------------------------------------------
+   PHASE 3: MEDIA QUERY - PHONES AND SMALL TABLETS
+   ---------------------------------------------------------- */
+@media (max-width: 760px) {
+    .site-nav {
+        padding: 0.75rem 1rem;
+    }
+
+    .item-detail {
+        grid-template-columns: 1fr;   /* stack photo above details */
+        gap: 1.5rem;
+        margin: 1.5rem 1rem;
+        padding: 1.5rem;
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-links {
+        grid-column: 1 / -1;          /* links span the full width */
+        grid-row: 1;
+    }
+
+    .footer-columns > img {
+        width: 90px;
+    }
+
+    .graphics-strip img {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* EXTRA CREDIT: hamburger menu, only when JavaScript runs */
+    .js .menu-toggle {
+        display: block;
+        padding: 0.45rem 1rem;
+        border: 2px solid var(--color-light);
+        border-radius: 6px;
+        background: transparent;
+        color: var(--color-light);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .js .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding-bottom: 0.5rem;
+    }
+
+    .js .nav-links.open {
+        display: flex;
+    }
+
+    .js .nav-links .santa-link {
+        text-align: center;
+    }
+}
+
+
+/* Respect people who turn off animation */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .card,
+    .card:hover {
+        transition: none;
+        transform: none;
+    }
+}
